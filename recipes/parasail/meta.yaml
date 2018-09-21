@@ -1,0 +1,40 @@
+{% set version = "1.1.12" %}
+{% set hash_value = "2056359885f4ee569b2c505e8b700c09cf03d6d74f3889a6de166e92aa5c827b" %}
+
+package:
+  name: parasail
+  version: '{{ version }}'
+
+source:
+  url: https://files.pythonhosted.org/packages/64/e5/b7b0ab11296923be15dbdbcfb4dd79dc427b5b52a7de9716aa64548afdf7/parasail-1.1.12.tar.gz
+  sha256: '{{ hash_value }}'
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - autoconf
+    - automake
+    - libtool
+  host:
+    - python
+    - setuptools
+    - numpy
+  run:
+    - python
+    - numpy
+
+test:
+  imports:
+    - parasail
+
+about:
+  home: https://github.com/jeffdaily/parasail-python
+  license: BSD License
+  summary: pairwise sequence alignment library
+
+extra:
+  identifiers:
+    - doi:10.1186/s12859-016-0930-z
